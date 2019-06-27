@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/0.7.1/aframe.js"
         integrity="sha256-cG9BZROrrSLbHd43vVo8ogUAMC/8xPEzdP+oYfPUeRQ=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"
-        integrity="sha256-my/qJggBjG+JoaR9MUSkYM+EpxVkxZRNn3KODs+el74=" crossorigin="anonymous"></script>
+    <script src="js/html2canvas.js"></script>
     <script src="https://unpkg.com/aframe-html-shader@0.2.0/dist/aframe-html-shader.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <link href="stargazer.css" rel="stylesheet">
 </head>
 
 <body style="margin:0px; overflow:hidden;">
@@ -16,23 +19,95 @@
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 
     <div id="profile"
-        style="color: greenyellow; width: 512px; height: 512px; background-color: transparent; position: absolute; top: 00px; left: 0px; z-index:-100;">
-        <div>
-            <img src="ui.png" style="object-fit: cover; width: 512px; height: 512px;"/>
+        style="width: 512px; height: 512px; background-color: transparent; position: absolute; top: 00px; left: 0px; z-index:-100;">
+        <div class="card">
+            <div class="card-header ">
+                <span class="card-title">Acid Plant - AS01</span>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <div style="font-size: 1.5em">SIEMENS CPU</div>
+                        <div style="font-size: 2em">410-5H</div>
+                        <div>6ES7410-5HX08-0AB0</div>
+                    </div>
+                    <div class="col text-center">
+                        <div class="text-warning pb-0" style="font-size: 1.25em; font-weight: bold;">CPU LOAD</div>
+                        <div class="text-warning" style="font-size: 3em; font-weight: bold;">78%</div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <table class="table">
+                        <tr>
+                            <td>Firmware</td>
+                            <td>v8.3.0 <span class="text-danger">UPDATE AVAILABLE</span></td>
+                        </tr>
+                        <tr>
+                                <td>Hardware</td>
+                                <td>v8.1 <span class="text-success">OK</span></td>
+                            </tr>
+                    </table>
+                </div>
+
+            </div>
+            <div class="chart-wrapper mt-3" style="height:70px;">
+                <canvas class="chart" id="card-chart1" height="70"></canvas>
+            </div>
         </div>
     </div>
 
     <!-- set AR.js to AFrame -->
     <a-scene embedded arjs="debugUIEnabled:false;">
-        <!-- set marker -->
         <a-marker preset="hiro">
             <a-plane position="0 0 0" rotation="-90 90 -90" scale="5 5 1"
-                material="shader:html;target: #profile;"></a-plane>
+                material="shader:html;target: #profile; fps: 10;"></a-plane>
         </a-marker>
 
-        <!-- set camera -->
         <a-entity camera></a-entity>
     </a-scene>
 </body>
+<script>
+    var cardChart1 = new Chart($('#card-chart1'), {
+        type: 'line',
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: 'rgba(255,255,255,.2)',
+                borderColor: 'rgba(255,255,255,.55)',
+                data: [40, 40, 42, 42, 79, 79, 85]
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            legend: {
+                display: false
+            },
+            scales: {
+                xAxes: [{
+                    display: false
+                }],
+                yAxes: [{
+                    display: false, 
+                    min: 0,
+                    ticks: {
+                        beginAtZero:true
+                    }
+                    
+                }]
+            },
+            elements: {
+                line: {
+                    borderWidth: 2
+                },
+                point: {
+                    radius: 0,
+                    hitRadius: 10,
+                    hoverRadius: 4
+                }
+            }
+        }
+    });
+</script>
 
 </html>
