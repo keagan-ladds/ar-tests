@@ -23,7 +23,7 @@
         <div class="container-fluid">
             <div class="animated fadeIn">
                 <div class="row">
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="col">
                         <div class="card text-white bg-primary">
                             <div class="card-body pb-0">
                                 <div class="btn-group float-right">
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <!-- /.col-->
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="col">
                         <div class="card text-white bg-info">
                             <div class="card-body pb-0">
                                 <button class="btn btn-transparent p-0 float-right" type="button">
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <!-- /.col-->
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="col">
                         <div class="card text-white bg-warning">
                             <div class="card-body pb-0">
                                 <div class="btn-group float-right">
@@ -84,7 +84,7 @@
                         </div>
                     </div>
                     <!-- /.col-->
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="col">
                         <div class="card text-white bg-danger">
                             <div class="card-body pb-0">
                                 <div class="btn-group float-right">
@@ -110,7 +110,7 @@
                 </div>
                 <!-- /.row-->
                 <div class="row">
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="col">
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-value">89.9%</div>
@@ -124,7 +124,7 @@
                         </div>
                     </div>
                     <!-- /.col-->
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="col">
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-value">12.124</div>
@@ -138,7 +138,7 @@
                         </div>
                     </div>
                     <!-- /.col-->
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="col">
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-value">$98.111,00</div>
@@ -152,7 +152,7 @@
                         </div>
                     </div>
                     <!-- /.col-->
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="col">
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-value">2 TB</div>
@@ -169,7 +169,7 @@
                 </div>
                 <!-- /.row-->
                 <div class="row">
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="col">
                         <div class="brand-card">
                             <div class="brand-card-header bg-facebook">
                                 <i class="fa fa-facebook"></i>
@@ -190,7 +190,7 @@
                         </div>
                     </div>
                     <!-- /.col-->
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="col">
                         <div class="brand-card">
                             <div class="brand-card-header bg-twitter">
                                 <i class="fa fa-twitter"></i>
@@ -211,7 +211,7 @@
                         </div>
                     </div>
                     <!-- /.col-->
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="col">
                         <div class="brand-card">
                             <div class="brand-card-header bg-linkedin">
                                 <i class="fa fa-linkedin"></i>
@@ -232,7 +232,7 @@
                         </div>
                     </div>
                     <!-- /.col-->
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="col">
                         <div class="brand-card">
                             <div class="brand-card-header bg-google-plus">
                                 <i class="fa fa-google-plus"></i>
@@ -262,8 +262,8 @@
 
     <!-- set AR.js to AFrame -->
     <a-scene embedded arjs="debugUIEnabled:false; sourceWidth: 1280; sourceHeight: 1024; matrixCodeType:3x3; detectionMode:mono_and_matrix; maxDetectionRate: 30; cameraParametersUrl:camera_para.dat">
-        <a-marker type="barcode" value="0" smooth="true" smoothCount="10">
-            <a-plane position="0 0 1" rotation="-90 90 -90" scale="15 15 1"
+        <a-marker preset="hiro" smooth="true" smoothCount="10">
+            <a-plane position="0 0 1" rotation="-90 90 -90" scale="10 10 1"
                 material="shader:html;target: #profile; fps: 30;"></a-plane>
         </a-marker>
 
